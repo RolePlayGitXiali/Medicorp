@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Médicorp - Gestion d'Inventaire</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Médicorp</h1>
+        <p id="page-subtitle">Calculateur de prix</p>
+      </header>
+
+      <main>
+        <!-- Onglets principaux: Vente vs Achat -->
+        <div class="main-tabs">
+          <button class="main-tab-btn active" data-mode="vente">
+            🛒 Vente
+          </button>
+          <button class="main-tab-btn" data-mode="achat">
+            📦 Achat Matériaux
+          </button>
+        </div>
+
+        <!-- ===== MODE VENTE ===== -->
+        <div id="vente-mode" class="mode-container active">
+          <!-- Panneaux de contrôle -->
+          <div class="control-panel">
+            <div class="subscription-selector">
+              <label for="subscription">Abonnement:</label>
+              <select id="subscription">
+                <option value="sub_none">Sans Abonnement (0%)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Onglets de produits -->
+          <div class="tabs-container">
+            <div class="tabs">
+              <button class="tab-btn active" data-tab="implants">
+                Implants
+              </button>
+              <button class="tab-btn" data-tab="basicElements">Éléments</button>
+              <button class="tab-btn" data-tab="stims">Stims</button>
+            </div>
+
+            <!-- Implants -->
+            <div id="implants" class="tab-content active">
+              <div id="implants-tiers" class="tier-selector">
+                <button class="tier-btn active" data-tier="T1">T1</button>
+                <button class="tier-btn" data-tier="T2">T2</button>
+                <button class="tier-btn" data-tier="T2MK2">T2 MK2</button>
+              </div>
+              <div id="implants-list" class="products-grid"></div>
+            </div>
+
+            <!-- Éléments Basiques -->
+            <div id="basicElements" class="tab-content">
+              <div id="basic-elements-list" class="products-grid"></div>
+            </div>
+
+            <!-- Stims -->
+            <div id="stims" class="tab-content">
+              <div id="stims-tiers" class="tier-selector">
+                <button class="tier-btn active" data-tier="T1">T1</button>
+                <button class="tier-btn" data-tier="T2">T2</button>
+                <button class="tier-btn" data-tier="T3">T3</button>
+              </div>
+              <div id="stims-list" class="products-grid"></div>
+            </div>
+          </div>
+
+          <!-- Panier et résumé -->
+          <div class="footer-panel">
+            <div class="cart-section">
+              <h3>Panier</h3>
+              <div id="cart-items" class="cart-items">
+                <p class="empty-cart">Vide</p>
+              </div>
+              <button id="clear-cart" class="btn btn-danger btn-sm">
+                Vider
+              </button>
+            </div>
+
+            <div class="summary-section">
+              <div
+                style="
+                  font-size: 0.8em;
+                  color: #909090;
+                  margin-bottom: 8px;
+                  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+                  padding-bottom: 6px;
+                "
+              >
+                <strong>DÉCOMPOSITION:</strong>
+              </div>
+              <div class="summary-row">
+                <span>Coût matériaux:</span>
+                <span id="materials-cost-detail">0.00 Crédit</span>
+              </div>
+              <div class="summary-row">
+                <span>Coût fabrication:</span>
+                <span id="fabrication-cost">0.00 Crédit</span>
+              </div>
+              <div class="summary-row">
+                <span>Sous-total coûts:</span>
+                <span
+                  id="total-cost-detail"
+                  style="color: #ffa500; font-weight: 600"
+                  >0.00 Crédit</span
+                >
+              </div>
+              <div
+                style="
+                  border-top: 1px solid rgba(0, 212, 255, 0.2);
+                  margin: 6px 0;
+                  padding-top: 6px;
+                "
+              >
+                <div class="summary-row">
+                  <span>Marge brute (35%):</span>
+                  <span
+                    id="margin-detail"
+                    style="color: #00ff88; font-weight: 600"
+                    >0.00 Crédit</span
+                  >
+                </div>
+                <div class="summary-row">
+                  <span>Réduction appliquée:</span>
+                  <span id="discount" class="discount">0.00 Crédit</span>
+                </div>
+              </div>
+              <div class="summary-row total">
+                <span>PRIX CLIENT:</span>
+                <span id="total-price">0.00 Crédit</span>
+              </div>
+              <div
+                style="
+                  border-top: 1px solid rgba(0, 212, 255, 0.2);
+                  margin: 6px 0;
+                  padding-top: 6px;
+                "
+              >
+                <div class="summary-row">
+                  <span>Marge réelle:</span>
+                  <span id="real-margin" style="color: #00d4ff"
+                    >0.00 Crédit</span
+                  >
+                </div>
+                <div class="summary-row">
+                  <span>Employé (60%):</span>
+                  <span id="benefit-employee" class="benefit-employee"
+                    >0.00 Crédit</span
+                  >
+                </div>
+                <div class="summary-row">
+                  <span>Dépôt entreprise (40% + mat):</span>
+                  <span id="benefit-company" class="benefit-company"
+                    >0.00 Crédit</span
+                  >
+                </div>
+              </div>
+              <button
+                id="copy-order"
+                class="btn btn-success btn-sm"
+                style="margin-top: 8px; width: 100%"
+                onclick="copyOrderToClipboard()"
+              >
+                📋 Copier commande
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== MODE ACHAT MATÉRIAUX ===== -->
+        <div id="achat-mode" class="mode-container">
+          <!-- Onglets de matériaux -->
+          <div class="tabs-container">
+            <div class="tabs">
+              <button class="tab-btn active" data-tab="mat-simples">
+                Simples
+              </button>
+              <button class="tab-btn" data-tab="mat-composites">
+                Composites
+              </button>
+            </div>
+
+            <!-- Matériaux Simples -->
+            <div id="mat-simples" class="tab-content active">
+              <div id="simple-materials-list" class="products-grid"></div>
+            </div>
+
+            <!-- Matériaux Composites -->
+            <div id="mat-composites" class="tab-content">
+              <div id="composite-materials-list" class="products-grid"></div>
+            </div>
+          </div>
+
+          <!-- Panier et résumé (Achat) -->
+          <div class="footer-panel">
+            <div class="cart-section">
+              <h3>Commande</h3>
+              <div id="cart-materials" class="cart-items">
+                <p class="empty-cart">Vide</p>
+              </div>
+              <button id="clear-cart-materials" class="btn btn-danger btn-sm">
+                Vider
+              </button>
+            </div>
+
+            <div class="summary-section">
+              <div class="summary-row">
+                <span>Total matériaux:</span>
+                <span id="materials-total">0.00 Crédit</span>
+              </div>
+              <div class="summary-row total">
+                <span>À payer:</span>
+                <span id="materials-final-price">0.00 Crédit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

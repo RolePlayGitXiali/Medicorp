@@ -1,0 +1,397 @@
+{
+  "materials": {
+    "simple": [
+      {
+        "id": "mat_hfredium_t1",
+        "name": "Hfredium T1",
+        "pricePerUnit": 50,
+        "category": "exotic_metal",
+        "type": "simple"
+      },
+      {
+        "id": "mat_chanlon",
+        "name": "Chanlon",
+        "pricePerUnit": 10000,
+        "category": "exotic_metal",
+        "type": "simple"
+      },
+      {
+        "id": "mat_cortosis",
+        "name": "Cortosis",
+        "pricePerUnit": 12500,
+        "category": "exotic_metal",
+        "type": "simple"
+      }
+    ],
+    "composite": [
+      {
+        "id": "mat_duracier_t1",
+        "name": "Duracier T1",
+        "pricePerUnit": 3000,
+        "fabricationCost": 0,
+        "category": "exotic_metal",
+        "type": "composite",
+        "description": "Matériau composite de base",
+        "composition": {},
+        "yield": 1
+      },
+      {
+        "id": "mat_duracier_t2",
+        "name": "Duracier T2",
+        "pricePerUnit": 2000,
+        "fabricationCost": 15000,
+        "category": "exotic_metal",
+        "type": "composite",
+        "description": "Matériau composite amélioré",
+        "composition": {
+          "mat_duracier_t1": 5
+        },
+        "yield": 1
+      },
+      {
+        "id": "mat_transparacier_t1",
+        "name": "Transparacier T1",
+        "pricePerUnit": 1250,
+        "fabricationCost": 0,
+        "category": "exotic_metal",
+        "type": "composite",
+        "description": "Matériau renforcé",
+        "composition": {},
+        "yield": 1
+      },
+      {
+        "id": "mat_transparacier_t2",
+        "name": "Transparacier T2",
+        "pricePerUnit": 375,
+        "fabricationCost": 625,
+        "category": "exotic_metal",
+        "type": "composite",
+        "description": "Transparacier de haut niveau - 8 T1 produit 4 unités",
+        "composition": {
+          "mat_transparacier_t1": 2
+        },
+        "yield": 4
+      }
+    ]
+  },
+  "products": {
+    "implants": {
+      "T1": [
+        {
+          "id": "implant_t1_hyperdermique",
+          "name": "Hyperdermique",
+          "tier": "T1",
+          "type": "Hyperdermique",
+          "category": "implants",
+          "basePrice": 3250,
+          "fabricationCost": 2500,
+          "discountable": true
+        },
+        {
+          "id": "implant_t1_servomoteur",
+          "name": "Servomoteur",
+          "tier": "T1",
+          "type": "Servomoteur",
+          "category": "implants",
+          "basePrice": 3250,
+          "fabricationCost": 2500,
+          "discountable": true
+        },
+        {
+          "id": "implant_t1_biomoniteur",
+          "name": "Biomoniteur",
+          "tier": "T1",
+          "type": "Biomoniteur",
+          "category": "implants",
+          "basePrice": 3250,
+          "fabricationCost": 2500,
+          "discountable": true
+        }
+      ],
+      "T2": [
+        {
+          "id": "implant_t2_hyperdermique",
+          "name": "Hyperdermique",
+          "tier": "T2",
+          "type": "Hyperdermique",
+          "category": "implants",
+          "basePrice": 19500,
+          "fabricationCost": 15000,
+          "discountable": false
+        },
+        {
+          "id": "implant_t2_servomoteur",
+          "name": "Servomoteur",
+          "tier": "T2",
+          "type": "Servomoteur",
+          "category": "implants",
+          "basePrice": 19500,
+          "fabricationCost": 15000,
+          "discountable": false
+        },
+        {
+          "id": "implant_t2_biomoniteur",
+          "name": "Biomoniteur",
+          "tier": "T2",
+          "type": "Biomoniteur",
+          "category": "implants",
+          "basePrice": 19500,
+          "fabricationCost": 15000,
+          "discountable": false
+        }
+      ],
+      "T2MK2": [
+        {
+          "id": "implant_t2mk2_hyperdermique",
+          "name": "Hyperdermique",
+          "tier": "T2 MK2",
+          "type": "Hyperdermique",
+          "category": "implants",
+          "basePrice": 0,
+          "fabricationCost": 17500,
+          "discountable": false,
+          "materials": {
+            "mat_transparacier_t1": 10,
+            "mat_duracier_t1": 4
+          }
+        },
+        {
+          "id": "implant_t2mk2_servomoteur",
+          "name": "Servomoteur",
+          "tier": "T2 MK2",
+          "type": "Servomoteur",
+          "category": "implants",
+          "basePrice": 0,
+          "fabricationCost": 17500,
+          "discountable": false,
+          "materials": {
+            "mat_transparacier_t1": 10,
+            "mat_duracier_t1": 4
+          }
+        },
+        {
+          "id": "implant_t2mk2_biomoniteur",
+          "name": "Biomoniteur",
+          "tier": "T2 MK2",
+          "type": "Biomoniteur",
+          "category": "implants",
+          "basePrice": 0,
+          "fabricationCost": 17500,
+          "discountable": false,
+          "materials": {
+            "mat_transparacier_t1": 10,
+            "mat_duracier_t1": 4
+          }
+        }
+      ]
+    },
+    "basicElements": [
+      {
+        "id": "kit_soins_t2",
+        "name": "Kit de Soins T2",
+        "category": "basicElements",
+        "basePrice": 1890,
+        "fabricationCost": 1400,
+        "discountable": true
+      },
+      {
+        "id": "kit_soins_t3",
+        "name": "Kit de Soins T3",
+        "category": "basicElements",
+        "basePrice": 2430,
+        "fabricationCost": 1800,
+        "discountable": true
+      },
+      {
+        "id": "grenade_kolto",
+        "name": "Grenade Kolto",
+        "category": "basicElements",
+        "basePrice": 1350,
+        "fabricationCost": 1000,
+        "discountable": true
+      },
+      {
+        "id": "bota_cryo",
+        "name": "Bota Cryo",
+        "category": "basicElements",
+        "basePrice": 1620,
+        "fabricationCost": 1200,
+        "discountable": true
+      }
+    ],
+    "stims": {
+      "T1": [
+        {
+          "id": "stim_t1_bota",
+          "name": "Bota",
+          "tier": "T1",
+          "type": "Bota",
+          "category": "stims",
+          "basePrice": 1950,
+          "fabricationCost": 1500,
+          "discountable": true
+        },
+        {
+          "id": "stim_t1_adrenaline",
+          "name": "Adrénaline",
+          "tier": "T1",
+          "type": "Adrénaline",
+          "category": "stims",
+          "basePrice": 1950,
+          "fabricationCost": 1500,
+          "discountable": true
+        },
+        {
+          "id": "stim_t1_endurol",
+          "name": "Endurol",
+          "tier": "T1",
+          "type": "Endurol",
+          "category": "stims",
+          "basePrice": 1950,
+          "fabricationCost": 1500,
+          "discountable": true
+        },
+        {
+          "id": "stim_t1_steroid",
+          "name": "Stéroide",
+          "tier": "T1",
+          "type": "Stéroide",
+          "category": "stims",
+          "basePrice": 1950,
+          "fabricationCost": 1500,
+          "discountable": true
+        }
+      ],
+      "T2": [
+        {
+          "id": "stim_t2_bota",
+          "name": "Bota",
+          "tier": "T2",
+          "type": "Bota",
+          "category": "stims",
+          "basePrice": 0,
+          "fabricationCost": 2100,
+          "discountable": false,
+          "materials": {
+            "mat_hfredium_t1": 5
+          }
+        },
+        {
+          "id": "stim_t2_adrenaline",
+          "name": "Adrénaline",
+          "tier": "T2",
+          "type": "Adrénaline",
+          "category": "stims",
+          "basePrice": 0,
+          "fabricationCost": 2100,
+          "discountable": false,
+          "materials": {
+            "mat_hfredium_t1": 5
+          }
+        },
+        {
+          "id": "stim_t2_endurol",
+          "name": "Endurol",
+          "tier": "T2",
+          "type": "Endurol",
+          "category": "stims",
+          "basePrice": 0,
+          "fabricationCost": 2100,
+          "discountable": false,
+          "materials": {
+            "mat_hfredium_t1": 5
+          }
+        },
+        {
+          "id": "stim_t2_steroid",
+          "name": "Stéroide",
+          "tier": "T2",
+          "type": "Stéroide",
+          "category": "stims",
+          "basePrice": 0,
+          "fabricationCost": 2100,
+          "discountable": false,
+          "materials": {
+            "mat_hfredium_t1": 5
+          }
+        }
+      ],
+      "T3": [
+        {
+          "id": "stim_t3_bota",
+          "name": "Bota",
+          "tier": "T3",
+          "type": "Bota",
+          "category": "stims",
+          "basePrice": 0,
+          "fabricationCost": 3000,
+          "discountable": false,
+          "materials": {
+            "mat_transparacier_t1": 2
+          }
+        },
+        {
+          "id": "stim_t3_adrenaline",
+          "name": "Adrénaline",
+          "tier": "T3",
+          "type": "Adrénaline",
+          "category": "stims",
+          "basePrice": 0,
+          "fabricationCost": 3000,
+          "discountable": false,
+          "materials": {
+            "mat_transparacier_t1": 2
+          }
+        },
+        {
+          "id": "stim_t3_endurol",
+          "name": "Endurol",
+          "tier": "T3",
+          "type": "Endurol",
+          "category": "stims",
+          "basePrice": 0,
+          "fabricationCost": 3000,
+          "discountable": false,
+          "materials": {
+            "mat_transparacier_t1": 2
+          }
+        },
+        {
+          "id": "stim_t3_steroid",
+          "name": "Stéroide",
+          "tier": "T3",
+          "type": "Stéroide",
+          "category": "stims",
+          "basePrice": 0,
+          "fabricationCost": 3000,
+          "discountable": false,
+          "materials": {
+            "mat_transparacier_t1": 2
+          }
+        }
+      ]
+    }
+  },
+  "subscriptions": [
+    {
+      "id": "sub_none",
+      "name": "Sans Abonnement",
+      "discountPercentage": 0
+    },
+    {
+      "id": "sub_standard",
+      "name": "Abonnement Or",
+      "discountPercentage": 10
+    },
+    {
+      "id": "sub_premium",
+      "name": "Abonnement Or+",
+      "discountPercentage": 12
+    },
+    {
+      "id": "sub_elite",
+      "name": "Abonnement Platin",
+      "discountPercentage": 18
+    }
+  ]
+}
