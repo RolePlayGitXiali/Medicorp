@@ -18,7 +18,7 @@
       {
         "id": "mat_cortosis",
         "name": "Cortosis",
-        "pricePerUnit": 12500,
+        "pricePerUnit": 13000,
         "category": "exotic_metal",
         "type": "simple"
       }
@@ -38,13 +38,13 @@
       {
         "id": "mat_duracier_t2",
         "name": "Duracier T2",
-        "pricePerUnit": 2000,
+        "pricePerUnit": 1000,
         "fabricationCost": 15000,
         "category": "exotic_metal",
         "type": "composite",
         "description": "Matériau composite amélioré",
         "composition": {
-          "mat_duracier_t1": 5
+          "mat_duracier_t1": 4
         },
         "yield": 1
       },
@@ -380,18 +380,18 @@
     },
     {
       "id": "sub_standard",
-      "name": "Abonnement Or",
-      "discountPercentage": 10
+      "name": "Offre 5%",
+      "discountPercentage": 5
     },
     {
       "id": "sub_premium",
-      "name": "Abonnement Or+",
-      "discountPercentage": 12
+      "name": "Offre 10%",
+      "discountPercentage": 10
     },
     {
       "id": "sub_elite",
-      "name": "Abonnement Platin",
-      "discountPercentage": 18
+      "name": "Offre 15%",
+      "discountPercentage": 15
     }
   ]
 }
